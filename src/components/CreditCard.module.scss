@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
+.paymentWrapper {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  font-family: "Noto Sans", sans-serif;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  & > div {
+    flex: 1;
+  }
+}

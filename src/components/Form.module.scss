@@ -1,0 +1,84 @@
+.cardInputs {
+  form {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #00000080;
+      width: 100%;
+    }
+
+    .inputsWrapper {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      gap: 20px;
+
+      & > div {
+        flex: 1;
+        padding: 5px;
+        margin: 0;
+      }
+    }
+
+    .selectWrapper {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) rotate(135deg);
+        right: 20px;
+        content: "";
+        height: 5px;
+        width: 5px;
+        border-top: 1px solid #000;
+        border-right: 1px solid #000;
+        display: block;
+      }
+    }
+
+    input,
+    select {
+      color: #00000090;
+      width: 100%;
+      line-height: 40px;
+      background: white;
+      border: 1px solid #ededee;
+      border-radius: 5px;
+      padding: 0 20px;
+      transition: border-color 0.3s ease-in-out;
+      appearance: none;
+      outline: none;
+
+      &:hover,
+      &:focus {
+        border-color: #00000050;
+      }
+    }
+
+    button {
+      line-height: 50px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.3s ease-in-out;
+
+      &[data-disabled="true"] {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

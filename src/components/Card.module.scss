@@ -1,0 +1,264 @@
+@import "./animations.scss";
+
+.container {
+  @extend .card;
+  perspective: 1500px;
+  @include fadeInFromPosition(bottom, 10px, 1s);
+
+  .inner {
+    @extend .card;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 20px #00000030;
+
+    &[data-flipped="true"] {
+      transform: rotateY(180deg);
+    }
+
+    .back,
+    .front {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      backface-visibility: hidden;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+  }
+}
+
+.card {
+  margin: 0 auto;
+  width: 430px;
+  height: 270px;
+  border-radius: 15px;
+  position: relative;
+
+  .back {
+    @extend .card;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    position: relative;
+
+    .strip {
+      background-color: #2a1d16;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      height: 60px;
+      width: 100%;
+    }
+
+    .cvv {
+      position: absolute;
+      top: 120px;
+      right: 30px;
+      background: repeating-linear-gradient(
+        0.1deg,
+        #fff 20%,
+        #fff 40%,
+        #fea 40%,
+        #fea 44%,
+        #fff 44%
+      );
+      height: 50px;
+      width: 75%;
+      color: lightgray;
+      padding: 0 20px;
+      font-size: 15px;
+      text-align: right;
+
+      small {
+        opacity: 1;
+        font-size: 10px;
+        line-height: 1;
+      }
+    }
+
+    .type {
+      opacity: 0.2;
+      top: unset;
+      right: unset;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: none;
+    }
+  }
+
+  .content,
+  .slider {
+    position: absolute;
+    top: 0;
+  }
+
+  .content {
+    @extend .card;
+    padding: 25px 15px;
+    color: #fff;
+
+    label {
+      color: #fff;
+      opacity: 0.7;
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+
+    .number {
+      padding: 15px;
+      margin-bottom: 30px;
+      font-weight: 500;
+      line-height: 1;
+      color: #fff;
+      font-size: 27px;
+      position: relative;
+      cursor: pointer;
+
+      .digitWrapper {
+        position: relative;
+        display: inline-block;
+        width: 16px;
+
+        .digit {
+          display: inline-block;
+          width: 100%;
+          vertical-align: middle;
+          transition: all 0.3s ease-in-out;
+          position: absolute;
+          top: 10px;
+        }
+
+        &:nth-child(4n) {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .shown {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .hidden:nth-child(1) {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+
+    .hidden:nth-child(2) {
+      transform: translateY(15px);
+      opacity: 0;
+    }
+
+    .name {
+      width: 75%;
+      padding-left: 15px;
+      padding-top: 8px;
+      position: relative;
+      cursor: pointer;
+
+      .placeholder {
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nameContainer {
+        position: absolute;
+        top: 25px;
+      }
+
+      .character {
+        @include fadeInFromPosition(bottom, 0, 0.3s);
+        display: inline-block;
+        margin-top: 5px;
+
+        &.space {
+          height: 100%;
+          width: 8px;
+        }
+      }
+    }
+
+    .animated {
+      @include fadeInFromPosition(bottom, 5px, 0.3s);
+    }
+
+    .expiration {
+      width: 25%;
+      padding-right: 10px;
+      padding-left: 15px;
+      padding-top: 5px;
+      cursor: pointer;
+
+      .expValues {
+        display: flex;
+        align-items: center;
+        max-width: 80%;
+
+        & > div {
+          text-align: center;
+          flex: 1;
+        }
+      }
+    }
+
+    .name,
+    .expiration {
+      display: inline-block;
+      padding-bottom: 9px;
+      font-weight: 500;
+
+      div {
+        line-height: 1;
+        white-space: nowrap;
+        max-width: 100%;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .chip {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 60px;
+    height: 50px;
+    background-image: url("../assets/creditcard-chip.png");
+    background-size: cover;
+  }
+
+  .type {
+    width: 85px;
+    height: 70px;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    transition: opacity 0.3s ease-in-out;
+    animation: changeCardLogo 0.3s ease-in-out forwards;
+
+    svg {
+      height: 100%;
+      width: 100%;
+      @include fadeInFromPosition(top, 0, 0.5s);
+    }
+
+    @keyframes changeCardLogo {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.overlay {
+  @extend .card;
+  position: relative;
+  overflow: hidden;
+  transform: scale(1);
+}

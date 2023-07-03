@@ -1,0 +1,28 @@
+// Animation function
+// Example usage : @include fadeInFromPosition(top, 1rem, 0.5s);
+@mixin fadeInFromPosition($position, $amount, $duration) {
+  $animationName: #{$position}-#{random(1000)};
+  @keyframes #{$animationName} {
+    from {
+      opacity: 0;
+      @if $position == top {
+        transform: translateY(-$amount);
+      } @else if $position == bottom {
+        transform: translateY($amount);
+      } @else if $position == left {
+        transform: translateX(-$amount);
+      } @else if $position == right {
+        transform: translateX($amount);
+      }
+    }
+    to {
+      opacity: 1;
+      @if $position == top or $position == bottom {
+        transform: translateY(0);
+      } @else if $position == left of $position == right {
+        transform: translateX(0);
+      }
+    }
+  }
+  animation: #{$animationName} $duration ease-in-out forwards;
+}
