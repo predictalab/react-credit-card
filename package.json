@@ -1,8 +1,18 @@
 {
   "name": "predictalab-react-credit-card",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Currently in development - An up to date version on a React credit card, with React 18 and Typescript",
   "author": "Nicolas - Predicta Lab",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/predictalab/react-credit-card.git"
+  },
+  "keywords": [
+    "react",
+    "credit card",
+    "typecsript",
+    "predictalab"
+  ],
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
