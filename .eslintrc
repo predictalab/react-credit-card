@@ -1,0 +1,285 @@
+{
+  "env": {
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:perfectionist/recommended-natural",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "extends": [
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "files": ["**/*.ts?(x)"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": true
+      },
+      "plugins": ["@typescript-eslint"],
+      "rules": {
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/dot-notation": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-use-before-define": "error",
+        "@typescript-eslint/sort-type-union-intersection-members": "warn",
+        "dot-notation": "off",
+        "spaced-comment": ["warn", "always", { "markers": ["/"] }],
+        "no-use-before-define": "off"
+      }
+    },
+    {
+      "extends": [
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
+        "plugin:jsx-a11y/recommended"
+      ],
+      "files": ["**/*.[jt]sx"],
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      },
+      "plugins": ["react", "react-hooks"],
+      "rules": {
+        /**
+         * Boolean properties must starts with "is" or "has" prefix.
+         */
+        "react/boolean-prop-naming": [
+          "error",
+          {
+            "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+",
+            "validateNested": false
+          }
+        ],
+        /**
+         * This rule is impracticable as it prohibits dynamic
+         * assignment even with enforced type or proptype.
+         * @see: https://github.com/jsx-eslint/eslint-plugin-react/issues/1555
+         */
+        "react/button-has-type": "off",
+        /**
+         * Use destructuring assignment instead of defaultProps they might
+         * be deprecated in the future.
+         * @see: https://twitter.com/dan_abramov/status/1133878326358171650
+         */
+        "react/default-props-match-prop-types": ["error"],
+        /**
+         * Destructuring props enforce the use of a single default value by
+         * destructuring assignment.
+         * @todo: find rule for enforcing destructuring assignment of optional
+         * properties.
+         */
+        "react/destructuring-assignment": [
+          "error",
+          "always",
+          { "destructureInSignature": "always" }
+        ],
+        "react/function-component-definition": [
+          "error",
+          {
+            "namedComponents": ["arrow-function"]
+          }
+        ],
+        "react/require-default-props": [
+          "error",
+          {
+            "functions": "defaultArguments"
+          }
+        ],
+        "react-hooks/exhaustive-deps": "error",
+        "react-hooks/rules-of-hooks": "error"
+      },
+      "settings": {
+        "react": {
+          "version": "detect"
+        }
+      }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["perfectionist", "prettier", "import"],
+  "reportUnusedDisableDirectives": true,
+  "rules": {
+    "array-callback-return": [
+      "error",
+      { "allowImplicit": true, "checkForEach": true }
+    ],
+    "block-scoped-var": "error",
+    "camelcase": ["warn"],
+    "class-methods-use-this": "error",
+    "curly": ["error", "all"],
+    "default-case": "error",
+    "default-case-last": "error",
+    "default-param-last": "error",
+    "dot-notation": "error",
+    "eqeqeq": "error",
+    "func-name-matching": [
+      "error",
+      {
+        "considerPropertyDescriptor": true
+      }
+    ],
+    "func-style": ["error", "expression"],
+    "grouped-accessor-pairs": ["error", "getBeforeSet"],
+    "guard-for-in": ["error"],
+    "import/default": "error",
+    "import/export": "error",
+    "import/named": "error",
+    "import/namespace": "error",
+    "import/newline-after-import": "error",
+    "import/no-absolute-path": "error",
+    "import/no-anonymous-default-export": "error",
+    "import/no-cycle": "error",
+    "import/no-deprecated": "error",
+    "import/no-duplicates": "error",
+    "import/no-dynamic-require": "error",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": false,
+        "optionalDependencies": false
+      }
+    ],
+    "import/no-mutable-exports": "error",
+    "import/no-named-default": "error",
+    "import/no-namespace": ["error", { "ignore": ["*.css"] }],
+    "import/no-relative-packages": "error",
+    "import/no-self-import": "error",
+    "import/no-unresolved": ["error", { "caseSensitiveStrict": true }],
+    "import/no-unused-modules": "error",
+    "import/no-useless-path-segments": "error",
+    "import/no-webpack-loader-syntax": "error",
+    "line-comment-position": ["error", { "position": "above" }],
+    "lines-between-class-members": "error",
+    "logical-assignment-operators": [
+      "error",
+      "always",
+      { "enforceForIfStatements": true }
+    ],
+    "max-classes-per-file": [
+      "error",
+      {
+        "ignoreExpressions": true,
+        "max": 1
+      }
+    ],
+    "no-alert": "error",
+    "no-array-constructor": "error",
+    "no-await-in-loop": "error",
+    "no-caller": "error",
+    "no-confusing-arrow": "error",
+    "no-console": ["error", { "allow": ["error"] }],
+    "no-constant-binary-expression": "error",
+    "no-constructor-return": "error",
+    "no-continue": "error",
+    "no-else-return": "error",
+    "no-empty-function": "error",
+    "no-eval": "error",
+    "no-extend-native": "error",
+    "no-extra-bind": "error",
+    "no-extra-label": "error",
+    "no-floating-decimal": "error",
+    "no-implicit-coercion": ["error", { "boolean": false }],
+    "no-implicit-globals": "error",
+    "no-implied-eval": "error",
+    "no-inline-comments": "error",
+    "no-invalid-this": "error",
+    "no-iterator": "error",
+    "no-label-var": "error",
+    "no-labels": "error",
+    "no-lone-blocks": "error",
+    "no-lonely-if": "error",
+    "no-loop-func": "error",
+    "no-mixed-operators": "error",
+    "no-multi-assign": "error",
+    "no-negated-condition": "error",
+    "no-nested-ternary": "error",
+    "no-new": "error",
+    "no-new-func": "error",
+    "no-new-object": "error",
+    "no-new-wrappers": "error",
+    "no-octal-escape": "error",
+    "no-param-reassign": "error",
+    "no-plusplus": "error",
+    "no-promise-executor-return": "error",
+    "no-proto": "error",
+    "no-return-assign": "error",
+    "no-return-await": "error",
+    "no-script-url": "error",
+    "no-self-compare": "error",
+    "no-sequences": "error",
+    "no-shadow": "error",
+    "no-template-curly-in-string": "error",
+    "no-throw-literal": "error",
+    "no-undef-init": "error",
+    "no-underscore-dangle": ["error", { "allow": ["__webpack_public_path__"] }],
+    "no-unmodified-loop-condition": "error",
+    "no-unneeded-ternary": "error",
+    "no-unreachable-loop": "error",
+    "no-unused-expressions": "error",
+    "no-unused-private-class-members": "error",
+    "no-use-before-define": ["error", { "variables": false }],
+    "no-useless-call": "error",
+    "no-useless-computed-key": "error",
+    "no-useless-concat": "error",
+    "no-useless-constructor": "error",
+    "no-useless-rename": "error",
+    "no-useless-return": "error",
+    "no-var": "error",
+    "no-void": "error",
+    "object-shorthand": ["error", "properties"],
+    "operator-assignment": ["error", "always"],
+    "prefer-arrow-callback": [
+      "error",
+      {
+        "allowNamedFunctions": true
+      }
+    ],
+    "prefer-const": [
+      "error",
+      { "destructuring": "all", "ignoreReadBeforeAssign": true }
+    ],
+    "prefer-destructuring": [
+      "error",
+      {
+        "array": true,
+        "object": true
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ],
+    "prefer-exponentiation-operator": "off",
+    "prefer-named-capture-group": "off",
+    "prefer-numeric-literals": "off",
+    "prefer-object-has-own": "error",
+    "prefer-object-spread": "error",
+    "prefer-promise-reject-errors": "error",
+    "prefer-regex-literals": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "prefer-template": "error",
+    "prettier/prettier": "error",
+    "quote-props": ["error", "as-needed"],
+    "radix": "error",
+    "require-atomic-updates": "error",
+    "require-await": "error",
+    "sort-vars": "error",
+    "spaced-comment": ["error", "always"],
+    "symbol-description": "error",
+    "vars-on-top": "error",
+    "yoda": ["error", "never"]
+  },
+  "settings": {
+    "import/resolver": {
+      "exports": {}
+    }
+  }
+}
