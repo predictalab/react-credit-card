@@ -1,6 +1,6 @@
 {
   "name": "@predictalab/react-credit-card",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An animated Credit Card component, built with React 18 and Typescript",
   "author": "Nicolas - Predicta Lab",
   "repository": {
