@@ -1,11 +1,11 @@
 {
-  "name": "predictalab-react-credit-card",
-  "version": "1.0.1",
-  "description": "Currently in development - An up to date version on a React credit card, with React 18 and Typescript",
+  "name": "@predictalab/react-credit-card",
+  "version": "1.0.3",
+  "description": "An animated Credit Card component, built with React 18 and Typescript",
   "author": "Nicolas - Predicta Lab",
   "repository": {
     "type": "git",
-    "url": "https://github.com/predictalab/react-credit-card.git"
+    "url": "git+https://github.com/predictalab/react-credit-card.git"
   },
   "keywords": [
     "react",
@@ -108,5 +108,10 @@
     "style-loader": "^3.3.1",
     "typescript": "^5.1.5",
     "web-vitals": "^2.1.4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/predictalab/react-credit-card/issues"
+  },
+  "homepage": "https://github.com/predictalab/react-credit-card#readme",
+  "license": "ISC"
 }
