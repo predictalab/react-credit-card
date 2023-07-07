@@ -1,0 +1,33 @@
+{
+  "[ignore]": {
+    "editor.defaultFormatter": "lkrms.inifmt"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "lkrms.inifmt"
+  },
+  "[typeScript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.formatOnSave": true,
+  "eslint.codeActionsOnSave.rules": null,
+  "prettier.enable": true
+}
