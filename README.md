@@ -8,7 +8,7 @@ An animated Credit Card component, built with React 18 and Typescript
 
 ## Installation
 
-`npm i predictalab-react-credit-card`
+`npm i @predictalab/react-credit-card`
 
 https://www.npmjs.com/package/@predictalab/react-credit-card
 
